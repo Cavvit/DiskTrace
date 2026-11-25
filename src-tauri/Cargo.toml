@@ -1,0 +1,24 @@
+[package]
+name = "disk-trace"
+version = "0.1.0"
+description = "Disk dolulugu zaman cizelgesi ve degisim analiz uygulamasi"
+authors = ["cavit"]
+edition = "2021"
+
+[lib]
+name = "disk_trace_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon", "image-png"] }
+tauri-plugin-single-instance = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", features = ["serde"] }
+sysinfo = "0.33"
+jwalk = "0.8"
+tokio = { version = "1", features = ["rt-multi-thread", "time", "sync", "macros"] }
+dirs = "6"
